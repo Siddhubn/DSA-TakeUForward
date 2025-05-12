@@ -42,14 +42,18 @@ void print_n_numbers_backtrack_reverse(int i,int n){
 }
 
 /*Lecture 3 - */
-void sum_of_first_n_numbers(int n){
-    int sum=0;
-    for(int i=1;i<=n;i++){
-        sum=sum+i;
-    }
-    cout<<sum;
+void sum_of_first_n_numbers_param(int i,int sum){
+    if(i<1) {
+        cout<<sum; 
+        return;}
+    sum_of_first_n_numbers_param(i-1,sum+i);
+}
+
+int sum_of_first_n_numbers_func(int n){
+    if(n==0) return 0;
+    return n+sum_of_first_n_numbers_func(n-1);
 }
 
 int main(){
-    sum_of_first_n_numbers(5);
+    cout<<sum_of_first_n_numbers_func(3);
 }
