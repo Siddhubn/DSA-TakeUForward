@@ -54,6 +54,19 @@ int sum_of_first_n_numbers_func(int n){
     return n+sum_of_first_n_numbers_func(n-1);
 }
 
+void factorial_param(int i,int fact){
+    if(i<1){
+        cout<<fact;
+        return;
+    }
+    factorial_param(i-1,fact*i);
+}
+
+int factorial_func(int n){
+    if(n==0) return 1;
+    return n*factorial_func(n-1);
+}
+
 int main(){
-    cout<<sum_of_first_n_numbers_func(3);
+    cout<<factorial_func(4);
 }
