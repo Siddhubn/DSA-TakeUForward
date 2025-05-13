@@ -67,6 +67,26 @@ int factorial_func(int n){
     return n*factorial_func(n-1);
 }
 
+/*Lecture 4 : Problems on Functional Recursion*/
+void reverse_an_array_2_pointers(int l,int r,int arr[]){
+    if(l>=r) return;
+    swap(arr[l],arr[r]);
+    reverse_an_array_2_pointers(l+1,r-1,arr);
+}
+
+void reverse_an_array_1_pointer(int i,int n,int arr[]){
+    if(i>=n/2) return;
+    swap(arr[i],arr[n-i-1]);
+    reverse_an_array_1_pointer(i+1,n,arr);
+}
+
+bool check_string_palindrome(int i,string &s){
+    if(i>s.size()/2) return true;
+    if(s[i]!=s[s.size()-i-1]) return false;
+    check_string_palindrome(i+1,s);
+}
+
 int main(){
-    cout<<factorial_func(4);
+    string s="madsm";
+    cout<<check_string_palindrome(0,s);
 }
