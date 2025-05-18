@@ -86,7 +86,23 @@ bool check_string_palindrome(int i,string &s){
     check_string_palindrome(i+1,s);
 }
 
+//Lecture 5: Multiple Recursion Calls
+int fibonacci(int n){
+    if(n<=1) return n;
+    int last=fibonacci(n-1);
+    int slast=fibonacci(n-2);
+    return last+slast;
+}
+
+
 int main(){
-    string s="madsm";
-    cout<<check_string_palindrome(0,s);
+    int n;
+    cin>>n;
+    int a=0,b=1,temp=0;
+    for(int i=2;i<n;i++){
+        temp=a+b;
+        a=b;
+        b=temp;
+    }
+    cout<<temp;
 }
