@@ -89,20 +89,20 @@ bool check_string_palindrome(int i,string &s){
 //Lecture 5: Multiple Recursion Calls
 int fibonacci(int n){
     if(n<=1) return n;
-    int last=fibonacci(n-1);
-    int slast=fibonacci(n-2);
+    return fibonacci(n-1)+fibonacci(n-2);
+}
+
+int fibonacci_2(int n){
+    if(n<=1) return 1;
+    int last=fibonacci_2(n-1);
+    int slast=fibonacci_2(n-2);
     return last+slast;
 }
 
+//Lecture 6: Recursion on Subsequences
+
 
 int main(){
-    int n;
-    cin>>n;
-    int a=0,b=1,temp=0;
-    for(int i=2;i<n;i++){
-        temp=a+b;
-        a=b;
-        b=temp;
-    }
-    cout<<temp;
+    cout<<fibonacci_2(4);
+    return 0;
 }
